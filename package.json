@@ -2,6 +2,9 @@
   "name": "myquora",
   "version": "1.0.0",
   "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
   "repository": "https://github.com/vansul/myquora-backend",
   "author": "Vaibhav Kaushik",
   "license": "MIT",
