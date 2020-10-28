@@ -1,0 +1,33 @@
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+  "name": "Rahul",
+  "email": "rahul@gmail.com",
+  "mobile": "+91 392 2013 234",
+  "dob": "21/10/2007",
+  "pwd": "10101010",
+  "gender": "male",
+  "country": "United States"
+}
+
+###
+
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+  "email": "rahul@gmail.com",
+  "pwd": "10101010"
+}
+
+###
+
+POST http://localhost:5000/question/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTk2ZGM0ZWNiMTAxMTEyOGIwNmI5NSIsImlhdCI6MTYwMzg5NDQ1NH0.inuyQzM_xkwB731GAkstY8NiEdr5EeXORWn46gnu9II
+
+Content-Type: application/json
+
+{
+  "title": "How to program?"
+}
