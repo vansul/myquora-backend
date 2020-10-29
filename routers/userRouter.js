@@ -14,12 +14,12 @@ const userRouter = express.Router();
 userRouter.get('/getDetails/:email', headerMW, user.getUserDetails);
 
 // Handling register POST request
-userRouter.post('/register', headerMW, user.registerUser);
+userRouter.post('/register', user.registerUser);
 
 // Handling login POST request
-userRouter.post('/login', headerMW, user.loginUser);
+userRouter.post('/login', user.loginUser);
 
 // Handling moderator POST request for creating moderator
-userRouter.post('/moderator', headerMW, auth, moderator, user.loginUser);
+userRouter.post('/moderator', auth, moderator, user.loginUser);
 
 module.exports = userRouter;
