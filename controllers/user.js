@@ -90,3 +90,15 @@ exports.registerModerator = (req, res) => {
       console.log(message.red.bold);
     });
 };
+
+exports.getUserDetails = (req, res) => {
+  const email = req.params.email;
+  User.findOne({ email }).exec((err, usr) => {
+    if (err) {
+      res.setHeader('content-type', 'application/json');
+      res.send(JSON.stringify(err, undefined, 2));
+    } else {
+      res.json({ user: usr });
+    }
+  });
+};

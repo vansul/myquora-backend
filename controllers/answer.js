@@ -18,7 +18,7 @@ exports.addAnswer = (req, res) => {
     })
     .catch((err) => {
       if (err) {
-        res.setHeaders('content-type', 'application/json');
+        res.setHeader('content-type', 'application/json');
         res.send(JSON.stringify(err, undefined, 2));
       }
     });
@@ -29,7 +29,7 @@ exports.getAllAnswers = (req, res) => {
 
   Answer.find({ ques }).exec((err, answers) => {
     if (err) {
-      res.setHeaders('content-type', 'application/json');
+      res.setHeader('content-type', 'application/json');
       res.send(JSON.stringify(err, undefined, 2));
     } else {
       res.json({ answers, success: true });

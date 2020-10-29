@@ -10,6 +10,9 @@ const user = require('../controllers/user');
 // Initializing userRouter
 const userRouter = express.Router();
 
+// Handling get user details GET request
+userRouter.get('/getDetails/:email', user.getUserDetails);
+
 // Handling register POST request
 userRouter.post('/register', user.registerUser);
 
