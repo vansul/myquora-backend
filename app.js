@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Using cors middleware
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Using router for every routes
 app.use('/', router);
