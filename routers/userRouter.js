@@ -20,6 +20,6 @@ userRouter.post('/register', user.registerUser);
 userRouter.post('/login', user.loginUser);
 
 // Handling moderator POST request for creating moderator
-userRouter.post('/moderator', auth, moderator, user.loginUser);
+userRouter.post('/moderator', auth, moderator, user.registerModerator);
 
 module.exports = userRouter;
