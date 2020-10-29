@@ -36,4 +36,12 @@ const moderator = (req, res, next) => {
   }
 };
 
-module.exports = { auth, moderator };
+const modOrOwner = (req, res, next) => {
+  if (req.user.isModerator || req.user.email == req.body.author) {
+    next();
+  } else {
+    res.status(401).json({ error: 'Not authorized, token failed' });
+  }
+};
+
+module.exports = { auth, moderator, modOrOwner };

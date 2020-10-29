@@ -22,9 +22,17 @@ exports.addQuestion = (req, res) => {
     });
 };
 
+exports.editQuestion = (req, res) => {
+  const id = req.params.id;
+  const title = req.body.title;
+  Question.findOneAndUpdate(id, { title }).then(() => {
+    res.json({ success: true });
+  });
+};
+
 exports.getQuestion = (req, res) => {
-  const _id = req.params.id;
-  Question.findById(_id, (err, ques) => {
+  const id = req.params.id;
+  Question.findById(id, (err, ques) => {
     if (err) {
       res.setHeader('content-type', 'application/json');
       res.send(JSON.stringify(err, undefined, 2));
