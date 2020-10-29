@@ -11,15 +11,15 @@ const user = require('../controllers/user');
 const userRouter = express.Router();
 
 // Handling get user details GET request
-userRouter.get('/getDetails/:email', user.getUserDetails);
+userRouter.get('/getDetails/:email', headerMW, user.getUserDetails);
 
 // Handling register POST request
-userRouter.post('/register', user.registerUser);
+userRouter.post('/register', headerMW, user.registerUser);
 
 // Handling login POST request
-userRouter.post('/login', user.loginUser);
+userRouter.post('/login', headerMW, user.loginUser);
 
 // Handling moderator POST request for creating moderator
-userRouter.post('/moderator', auth, moderator, user.loginUser);
+userRouter.post('/moderator', headerMW, auth, moderator, user.loginUser);
 
 module.exports = userRouter;

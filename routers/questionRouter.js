@@ -11,12 +11,12 @@ const { auth } = require('../middleware/authMiddleware');
 const questionRouter = express.Router();
 
 // Handling add POST request
-questionRouter.post('/add', auth, question.addQuestion);
+questionRouter.post('/add', headerMW, auth, question.addQuestion);
 
 // Handling GET request
-questionRouter.get('/get/:id', question.getQuestion);
+questionRouter.get('/get/:id', headerMW, question.getQuestion);
 
 // Handling GET request
-questionRouter.get('/getAll/', question.getAllQuestions);
+questionRouter.get('/getAll/', headerMW, question.getAllQuestions);
 
 module.exports = questionRouter;
