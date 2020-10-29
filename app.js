@@ -1,6 +1,7 @@
 // Importing libraries
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('colors');
 
 // Importing DB connector
@@ -17,6 +18,9 @@ const PORT = process.env.PORT || 5000;
 
 // Using bodyParser.json middleware
 app.use(bodyParser.json());
+
+// Using cors middleware
+app.use(cors());
 
 // Using router for every routes
 app.use('/', router);
