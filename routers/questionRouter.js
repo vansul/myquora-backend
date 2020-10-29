@@ -11,13 +11,13 @@ const { auth, modOrOwner } = require('../middleware/authMiddleware');
 const questionRouter = express.Router();
 
 // Handling add POST request
-questionRouter.post('/add', headerMW, auth, question.addQuestion);
+questionRouter.post('/add', auth, question.addQuestion);
 
 // Handling GET request
-questionRouter.get('/get/:id', headerMW, question.getQuestion);
+questionRouter.get('/get/:id', question.getQuestion);
 
 // Handling GET request
-questionRouter.get('/getAll/', headerMW, question.getAllQuestions);
+questionRouter.get('/getAll/', question.getAllQuestions);
 
 // Handling edit request
 questionRouter.put(
