@@ -22,7 +22,6 @@ questionRouter.get('/getAll/', question.getAllQuestions);
 // Handling edit request
 questionRouter.put(
   '/edit/:id',
-  headerMW,
   auth,
   modOrOwner,
   question.editQuestion
