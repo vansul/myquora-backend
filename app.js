@@ -20,12 +20,6 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Using cors middleware
-
-const corsOptions = {
-  origin: 'https://myquora.ml',
-  optionsSuccessStatus: 200,
-};
-
 app.use(cors(corsOptions));
 
 // Using router for every routes
