@@ -5,7 +5,7 @@ const express = require('express');
 const question = require('../controllers/question');
 
 // Importing authMW
-const { auth, modOrOwner } = require('../middleware/authMiddleware');
+const { auth, moderator } = require('../middleware/authMiddleware');
 
 // Initializing questionRouter
 const questionRouter = express.Router();
@@ -20,11 +20,6 @@ questionRouter.get('/get/:id', question.getQuestion);
 questionRouter.get('/getAll/', question.getAllQuestions);
 
 // Handling edit request
-questionRouter.put(
-  '/edit/:id',
-  auth,
-  modOrOwner,
-  question.editQuestion
-);
+questionRouter.put('/edit/:id', auth, moderator, question.editQuestion);
 
 module.exports = questionRouter;
