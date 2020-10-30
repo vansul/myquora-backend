@@ -25,9 +25,14 @@ exports.addQuestion = (req, res) => {
 exports.editQuestion = (req, res) => {
   const id = req.params.id;
   const title = req.body.title;
-  Question.findOneAndUpdate(id, { title }).then(() => {
-    res.json({ success: true });
-  });
+  Question.findOneAndUpdate(id, { title })
+    .then(() => {
+      res.json({ success: true });
+    })
+    .catch((err) => {
+      res.setHeader('content-type', 'application/json');
+      res.send(JSON.stringify(err, undefined, 2));
+    });
 };
 
 exports.getQuestion = (req, res) => {
