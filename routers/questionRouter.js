@@ -20,6 +20,6 @@ questionRouter.get('/get/:id', question.getQuestion);
 questionRouter.get('/getAll/', question.getAllQuestions);
 
 // Handling edit request
-questionRouter.post('/edit/:id', auth, moderator, question.editQuestion);
+questionRouter.put('/edit/:id', auth, moderator, question.editQuestion);
 
 module.exports = questionRouter;
